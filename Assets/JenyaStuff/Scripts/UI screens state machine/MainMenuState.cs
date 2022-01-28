@@ -18,6 +18,5 @@ public class MainMenuState : State
         interfaceHandler.MainMenu.gameObject.SetActive(true);
         interfaceHandler.OptionsMenu.gameObject.SetActive(false);
         interfaceHandler.CreditsMenu.gameObject.SetActive(false);
-        interfaceHandler.GameCompletionMenu.gameObject.SetActive(false);
     }
 }
