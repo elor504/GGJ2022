@@ -11,7 +11,6 @@ public class InterfaceHandler : MonoBehaviour
     #region ButtonImages
     [Header("Button sprites")]
     public Sprite OnHoverSprite;
-    public Sprite OnPressSprite;
     #endregion
     [Header("Menus")]
     public GameObject MainMenu;

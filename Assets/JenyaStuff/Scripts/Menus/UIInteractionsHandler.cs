@@ -35,7 +35,6 @@ public class UIInteractionsHandler : MonoBehaviour
     #region MainMenu Interactions
     public void Button_NewGame()
     {
-
         SceneManager.LoadScene(1);
         AudioManagerCS.GetInstance.sfxAudio[0].Play();
     }
