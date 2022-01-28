@@ -62,8 +62,8 @@ public class StageSO : ScriptableObject
 				{
 					for (int i = 0; i < spawnPositions.Count; i++)
 					{
-						float firstMinX = spawnPositions[i].x - 0.5f;
-						float firstMaxX = spawnPositions[i].x + 0.5f;
+						float firstMinX = spawnPositions[i].x - obstaclesToSpawn[i].GetComponent<BoxCollider2D>().bounds.min.x - 0.5f;
+						float firstMaxX = spawnPositions[i].x + obstaclesToSpawn[i].GetComponent<BoxCollider2D>().bounds.max.x + 0.5f;
 						float secondMinX;
 						float secondMaxX;
 						if ((i + 1) == spawnPositions.Count)
@@ -74,8 +74,8 @@ public class StageSO : ScriptableObject
 						}
 						else
 						{
-							secondMinX = spawnPositions[i + 1].x - 0.5f;
-							secondMaxX = spawnPositions[i + 1].x + 0.5f;
+							secondMinX = spawnPositions[i + 1].x - obstaclesToSpawn[i + 1].GetComponent<BoxCollider2D>().bounds.min.x - 0.5f;
+							secondMaxX = spawnPositions[i + 1].x + obstaclesToSpawn[i + 1].GetComponent<BoxCollider2D>().bounds.max.x + 0.5f;
 						}
 						
 						if (firstMinX > secondMaxX && firstMaxX > secondMaxX)
