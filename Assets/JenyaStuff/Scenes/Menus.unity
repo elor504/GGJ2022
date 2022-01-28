@@ -241,7 +241,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 1b8ab4b737fbf0243b619ad984b66d82, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1392,7 +1392,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 13f5b4611bc96ef4a8b8e59f25f2e221, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.05
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -5223,8 +5223,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   musicSlider: {fileID: 1296082388}
   soundEffectsSlider: {fileID: 2142454818}
-  musicAudio: []
-  sfxAudio: []
+  musicAudio:
+  - {fileID: 386175278}
+  sfxAudio:
+  - {fileID: 19395910}
 --- !u!4 &1779468689
 Transform:
   m_ObjectHideFlags: 0

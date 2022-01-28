@@ -6,28 +6,13 @@ public class HUDInteractionsHandler : MonoBehaviour
 {
     private AudioSettings audioSettings;
     private HUDstate hudState;
-    private bool isInventoryOpen, isPauseAvailable;
+    private bool isPauseAvailable;
     bool isFullScreenHUD;
 
     #region PublicFields
     [Header("Menus")]
-    public GameObject tabMenu;
     public GameObject pauseMenu;
     public GameObject optionsMenu;
-
-    [Header("Texts")]
-    public TextMeshProUGUI pauseText;
-    public TextMeshProUGUI inventoryText;
-
-    [Header("Info tabs")]
-    public GameObject infoTab;
-    public GameObject inventoryTab;
-    public GameObject infoLabel;
-    public GameObject inventoryLabel;
-
-    [Header("Images")]
-    public GameObject ImagePause;
-    public GameObject ImageInfo;
     #endregion
 
     void Start()
@@ -35,9 +20,7 @@ public class HUDInteractionsHandler : MonoBehaviour
         audioSettings = AudioSettings.ASInstance;
 
         // Defalut HUD settings
-        tabMenu.SetActive(false);
-        hudState = HUDstate.inventory;
-        isInventoryOpen = false;
+        hudState = HUDstate.pause;
         isPauseAvailable = true;
         isFullScreenHUD = UIInteractionsHandler.GetInstance.isFullScreenMenus;
     }
@@ -53,16 +36,8 @@ public class HUDInteractionsHandler : MonoBehaviour
                 optionsMenu.SetActive(false);
 
             }
-            if (hudState == HUDstate.info && isPauseAvailable == false || hudState == HUDstate.inventory && isPauseAvailable == false)
+            if (isPauseAvailable == false)
             {
-
-                // Close tab menu and set state
-                tabMenu.SetActive(false);
-                hudState = HUDstate.inventory;
-
-                // Change text
-                pauseText.SetText("PAUSE");
-                inventoryText.SetText("INVENTORY");
 
                 // Set a flag for pause menu
                 isPauseAvailable = true;
@@ -72,10 +47,6 @@ public class HUDInteractionsHandler : MonoBehaviour
                 // Open pause menu
                 pauseMenu.SetActive(true);
 
-                // Hide images
-                ImagePause.SetActive(false);
-                ImageInfo.SetActive(false);
-
                 // Change state
                 hudState = HUDstate.pause;
 
@@ -84,73 +55,10 @@ public class HUDInteractionsHandler : MonoBehaviour
 
                 // Freeze time
                 Time.timeScale = 0f;
-
-                // Disable player input
-
-            }
-        }
-        if (Input.GetKeyDown(KeyCode.Tab))
-        {
-            if (hudState != HUDstate.pause)
-            {
-                // Set a flag for pause menu
-                isPauseAvailable = false;
-
-                // Activate TAB menu
-                tabMenu.SetActive(true);
-
-                // Change text
-                pauseText.SetText("CLOSE");
-                inventoryText.SetText("SWITCH TAB");
-
-
-                if (hudState == HUDstate.info)
-                {
-                    // Update tab
-                    UpdateTabMenu();
-                    isInventoryOpen = false;
-
-                    // Set state to next
-                    hudState = HUDstate.inventory;
-                }
-                else if (hudState == HUDstate.inventory)
-                {
-                    // Update tab
-                    UpdateTabMenu();
-                    isInventoryOpen = true;
-
-                    // Set state to next
-                    hudState = HUDstate.info;
-                }
             }
         }
     }
 
-    public void UpdateTabMenu()
-    {
-        if (hudState == HUDstate.info)
-        {
-            infoTab.SetActive(true);
-            inventoryTab.SetActive(false);
-
-            // Visual feedback for tab change
-            inventoryLabel.GetComponentInChildren<TextMeshProUGUI>().fontSize = 20;
-            inventoryLabel.GetComponentInChildren<TextMeshProUGUI>().fontStyle = FontStyles.Normal;
-            infoLabel.GetComponentInChildren<TextMeshProUGUI>().fontSize = 30;
-            infoLabel.GetComponentInChildren<TextMeshProUGUI>().fontStyle = FontStyles.Bold;
-        }
-        if (hudState == HUDstate.inventory)
-        {
-            inventoryTab.SetActive(true);
-            infoTab.SetActive(false);
-
-            // Visual feedback for tab change
-            inventoryLabel.GetComponentInChildren<TextMeshProUGUI>().fontSize = 30;
-            inventoryLabel.GetComponentInChildren<TextMeshProUGUI>().fontStyle = FontStyles.Bold;
-            infoLabel.GetComponentInChildren<TextMeshProUGUI>().fontSize = 20;
-            infoLabel.GetComponentInChildren<TextMeshProUGUI>().fontStyle = FontStyles.Normal;
-        }
-    }
     public void Button_Continue()
     {
         // Unfreeze time
@@ -160,14 +68,10 @@ public class HUDInteractionsHandler : MonoBehaviour
 
 
         // Change state
-        hudState = HUDstate.inventory;
+        hudState = HUDstate.pause;
 
         // Close pause menu
         pauseMenu.SetActive(false);
-
-        // Show images
-        ImagePause.SetActive(true);
-        ImageInfo.SetActive(true);
 
         // Set a flag for pause menu
         isPauseAvailable = true;
@@ -227,8 +131,6 @@ public class HUDInteractionsHandler : MonoBehaviour
 
 enum HUDstate
 {
-    info,
-    inventory,
     pause,
     options
 }
