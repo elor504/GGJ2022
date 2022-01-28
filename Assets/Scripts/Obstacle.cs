@@ -82,5 +82,8 @@ Shadow
 public enum ObstacleType
 {
 normal,
-little
+little,
+Collectible,
+ShadowDeadly,
+Star
 }

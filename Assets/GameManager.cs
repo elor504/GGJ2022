@@ -108,6 +108,8 @@ public class GameManager : MonoBehaviour
 		playerOne.GetComponent<BasicPlayerMovement>().RestartPlayer();
 		playerTwo.GetComponent<BasicPlayerMovement>().RestartPlayer();
 
+		GetCurrentStage().DeactivateStage();
+
 		//reset the obstacles
 		obstacleManager.ResetObstacles();
 
@@ -124,7 +126,10 @@ public class GameManager : MonoBehaviour
 		//stageType = StageTypes.FreeRoam;
 	}
 
-
+	public void AddPoints(int _amount)
+	{
+		points += _amount;
+	}
 
 
 

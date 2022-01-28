@@ -25,9 +25,15 @@ public class StageSO : ScriptableObject
 
 	bool isActive;
 
-	IEnumerator StageSpawner;
+	Coroutine StageSpawner;
+	private void Awake()
+	{
+		
+	}
 	public void StartStage()
 	{
+	if(StageSpawner == null)
+			StageSpawner = GameManager.getInstance.StartCoroutine(Spawn());
 		isActive = true;
 		ResetStageTime();
 		RestartTimer();
@@ -35,7 +41,9 @@ public class StageSO : ScriptableObject
 	public void StartSpawning()
 	{
 		isActive = true;
-		GameManager.getInstance.StartCoroutine(Spawn());
+		if (StageSpawner != null)
+			StageSpawner = GameManager.getInstance.StartCoroutine(Spawn());
+		//GameManager.getInstance.StartCoroutine(StageSpawner);
 	}
 	void ResetStageTime()
 	{
@@ -120,7 +128,8 @@ public class StageSO : ScriptableObject
 				}
 			}
 
-			GameManager.getInstance.StartCoroutine(Spawn());
+			GameManager.getInstance.StopCoroutine(StageSpawner);
+			StageSpawner = GameManager.getInstance.StartCoroutine(Spawn());
 		}
 	}
 	public void StageTimer()
@@ -146,9 +155,15 @@ public class StageSO : ScriptableObject
 	{
 		GameManager.getInstance.EnterNewStage();
 		isActive = false;
-		GameManager.getInstance.StopCoroutine(Spawn());
+		Debug.Log("Cancel Co");
+		GameManager.getInstance.StopCoroutine(StageSpawner);
 	}
-
+	public void DeactivateStage()
+	{
+		isActive = false;
+		GameManager.getInstance.StopCoroutine(StageSpawner);
+		Debug.Log("Cancel Co");
+	}
 	void RestartTimer()
 	{
 		float spawnTime = Random.Range(minSpawnTimer, maxSpawnTimer + 1);
@@ -252,7 +267,7 @@ public class StageSO : ScriptableObject
 		int amountToSpawn = Random.Range(minSpawnAmount, maxSpawnAmount + 1);
 		for (int i = 0; i < amountToSpawn; i++)
 		{
-			int spawnIndex = Random.Range(0, obstacleHolder.Count - 1);
+			int spawnIndex = Random.Range(0, obstacleHolder.Count);
 			obstaclesToSpawn.Add(obstacleHolder[spawnIndex].getObstacle);
 		}
 

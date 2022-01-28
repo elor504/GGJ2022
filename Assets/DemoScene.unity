@@ -5105,8 +5105,7 @@ MonoBehaviour:
   playerTwo: {fileID: 1185937506}
   secondStage: 0
   stages:
-  - {fileID: 11400000, guid: 858fe212ee79a0f4796ce41de426a301, type: 2}
-  - {fileID: 11400000, guid: 35ad1a0ad610f8f4583a4c93dce03b0c, type: 2}
+  - {fileID: 11400000, guid: a2a64a8896b409942a3b2d9578cb2cd5, type: 2}
   stageIndex: 0
   stageUI: {fileID: 1129443924}
 --- !u!1 &1475046623
@@ -7350,6 +7349,10 @@ PrefabInstance:
       propertyPath: m_AngularDrag
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 2528214349967348020, guid: ea3bddaf352fd564591c0cf83372920c, type: 3}
+      propertyPath: m_Constraints
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 2528214349967348022, guid: ea3bddaf352fd564591c0cf83372920c, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -7458,6 +7461,10 @@ PrefabInstance:
     - target: {fileID: 8335663481259602854, guid: ac8df0146b132ad428856aa5c5a619ed, type: 3}
       propertyPath: m_AngularDrag
       value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8335663481259602854, guid: ac8df0146b132ad428856aa5c5a619ed, type: 3}
+      propertyPath: m_Constraints
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8335663481259602855, guid: ac8df0146b132ad428856aa5c5a619ed, type: 3}
       propertyPath: m_Name
