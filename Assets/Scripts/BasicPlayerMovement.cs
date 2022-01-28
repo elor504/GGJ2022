@@ -35,8 +35,8 @@ public class BasicPlayerMovement : MonoBehaviour
 			}
 			else
 			{
-				if (rb.velocity.x != 0)
-					rb.velocity = Vector2.zero;
+				//if (rb.velocity.x != 0)
+				//	rb.velocity = Vector2.zero;
 			}
 		}
 		else
@@ -51,8 +51,8 @@ public class BasicPlayerMovement : MonoBehaviour
 			}
 			else
 			{
-				if (rb.velocity.x != 0)
-					rb.velocity = Vector2.zero;
+				//if (rb.velocity.x != 0)
+				//	rb.velocity = Vector2.zero;
 			}
 		}
 	}

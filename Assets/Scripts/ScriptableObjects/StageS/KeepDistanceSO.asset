@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ff24e4a2422d794090a7888257c24bb, type: 3}
+  m_Name: KeepDistanceSO
+  m_EditorClassIdentifier: 
+  stageName: Keep Distance
+  obstacleHolder:
+  - obstacle: {fileID: 5588173315890347769, guid: d5c16bf6e5a65114a8fedde59804b849, type: 3}
+    obstacleSpawnChange: 0
+  minSpawnAmount: 1
+  maxSpawnAmount: 1
+  minSpawnTimer: 1
+  maxSpawnTimer: 4
+  stageMinTime: 10
+  stageMaxTime: 15
+  difficult: 0
+  extraRadiusAllowed: 0.5

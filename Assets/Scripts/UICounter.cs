@@ -8,6 +8,6 @@ public class UICounter : MonoBehaviour
 	public TextMeshProUGUI counterText;
 	private void FixedUpdate()
 	{
-		counterText.text = Mathf.RoundToInt(GameManager.getInstance.getStageCounter).ToString();
+		counterText.text = Mathf.RoundToInt(GameManager.getInstance.getStageCounter()).ToString();
 	}
 }

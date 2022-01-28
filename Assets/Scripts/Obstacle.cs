@@ -6,23 +6,26 @@ public class Obstacle : MonoBehaviour
 {
 	Rigidbody2D rb;
 
-
+	public ObstacleType obstacleType;
 	public PlayerType targetType;
 	public Color humanSafeColor, shadowSafeColor;
 	public SpriteRenderer spriteRenderer;
 	public float distanceToStayAlive;
 
-	public float normalGravity = 0.5f;
-	public float freeRoamGravity = 0.7f;
+	public float fallSpeed = 0.5f;
+
 	float yStartPos;
 	
+	
+
 	private void Awake()
 	{
 		rb = GetComponent<Rigidbody2D>();
-		//InitObstacle(PlayerType.Shadow,);
 	}
-	private void FixedUpdate()
+	public virtual void FixedUpdate()
 	{
+		ObstacleFallBehaviour();
+
 		float distance = (yStartPos - this.transform.position.y);
 		//to prevent negative distance
 		if(distance < 0){
@@ -32,22 +35,19 @@ public class Obstacle : MonoBehaviour
 			this.gameObject.SetActive(false);
 		}
 	}
-	public void InitObstacle(PlayerType _targetType,StageTypes _stageType)
+	public void InitObstacle(PlayerType _targetType)
 	{
-		switch (_stageType)
-		{
-			case StageTypes.FreeRoam:
-				rb.gravityScale = freeRoamGravity;
-				break;
-			case StageTypes.KeepDistance:
-				rb.gravityScale = normalGravity;
-				break;
-		}
-
 		yStartPos = this.transform.position.y;
 		targetType = _targetType;
 		SetColorByType();
 	}
+
+	public virtual void ObstacleFallBehaviour()
+	{
+		rb.velocity = new Vector2(0, -fallSpeed);
+	}
+
+
 	void SetColorByType()
 	{
 		switch (targetType)
@@ -61,7 +61,7 @@ public class Obstacle : MonoBehaviour
 		}
 	}
 
-	private void OnTriggerEnter2D(Collider2D collision)
+	public virtual void OnTriggerEnter2D(Collider2D collision)
 	{
 		if(collision.gameObject.tag == "Player")
 		{
@@ -77,4 +77,9 @@ public enum PlayerType
 {
 Human,
 Shadow
+}
+public enum ObstacleType
+{
+normal,
+little
 }

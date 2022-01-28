@@ -1,5 +1,6 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
-
 public class GameManager : MonoBehaviour
 {
 	private static GameManager _instance;
@@ -10,20 +11,19 @@ public class GameManager : MonoBehaviour
 
 	public Transform playerOne, playerTwo;
 
-	[SerializeField] private float extraRadiusAllowed;
+
 
 	public bool secondStage;
 
 	[Header("Stage Test")]
+	[SerializeField] List<StageSO> stages = new List<StageSO>();
+	[SerializeField] int stageIndex = 0;
+
 	public StageUI stageUI;
-	public float firstStageTime;
-	private float stageCounter;
-	public float getStageCounter => stageCounter;
 
 	private float points;
 	public float getPoints => points;
 
-	public StageTypes stageType;
 
 
 
@@ -34,59 +34,73 @@ public class GameManager : MonoBehaviour
 		else if (_instance != this)
 			Destroy(this.gameObject);
 		obstacleManager = GetComponent<ObstacleManager>();
-		stageCounter = firstStageTime;
-		stageUI.SetStageText(secondStage);
+		stageUI.SetStageText();
+		ResetAllStages();
+		ResetState();
 	}
 	// Update is called once per frame
 	void Update()
 	{
 		points += Time.deltaTime;
-		if (stageCounter > 0)
-		{
-			stageCounter -= Time.deltaTime;
-		}
-		else
-		{
-			secondStage = !secondStage;
-			if (secondStage)
-				stageType = StageTypes.KeepDistance;
-				else
-				stageType = StageTypes.FreeRoam;
-			stageUI.SetStageText(secondStage);
-			stageCounter = firstStageTime;
-		}
-
-		if (secondStage)
-			CheckDistanceByCollider();
+		CurrentStageBehaviour();
 	}
 
-	public void ActivateSecondStage()
+
+	#region Stages
+	void ResetState()
 	{
-		//obstacleManager.SetObstacleManagerActive(false);
-		secondStage = true;
+		stages[0].StartStage();
+		stageIndex = 0;
+		stages[0].StartSpawning();
 	}
-	void CheckDistanceByCollider()
+	void ResetAllStages()
 	{
-		float playerOneMinX = playerOne.GetComponent<BoxCollider2D>().bounds.min.x;
-		float playerOneMaxX = playerOne.GetComponent<BoxCollider2D>().bounds.max.x;
-
-		float playerTwoMinX = playerTwo.GetComponent<BoxCollider2D>().bounds.min.x;
-		float playerTwoMaxX = playerTwo.GetComponent<BoxCollider2D>().bounds.max.x;
-
-
-		if (playerOneMinX - extraRadiusAllowed > playerTwoMaxX)
+		for (int i = 0; i < stages.Count; i++)
 		{
-			GameManager.getInstance.RestartGame();
-			Debug.Log("Out of distance!!!");
+			//stages[i].StartStage();
 		}
-		else if (playerOneMaxX + extraRadiusAllowed < playerTwoMinX)
-		{
-			GameManager.getInstance.RestartGame();
-			Debug.Log("Out of distance!!!");
-		}
-
-
 	}
+	public void EnterNewStage()
+	{
+		if (stageIndex + 1 < stages.Count - 1)
+		{
+			stages[stageIndex + 1].StartStage();
+			//stages[stageIndex + 1].StartSpawning();
+		}
+
+		stageIndex++;
+
+		if (stageIndex > stages.Count - 1)
+		{
+			stageIndex = 0;
+			GetCurrentStage().StartStage();
+			GetCurrentStage().StartSpawning();
+		}
+		stageUI.SetStageText();
+	}
+	public void CurrentStageBehaviour()
+	{
+		GetCurrentStage().StageBehaviour();
+	}
+	StageSO GetCurrentStage()
+	{
+		return stages[stageIndex];
+	}
+	public float getStageCounter()
+	{
+		return GetCurrentStage().getStageTime;
+	}
+	public string GetStageName(){
+		return GetCurrentStage().getStageName;
+	}
+
+	#endregion
+
+	public void StartCourentine(IEnumerator courentine)
+	{
+		StartCoroutine(courentine);
+	}
+
 	public void RestartGame()
 	{
 		//reset the players position
@@ -96,24 +110,24 @@ public class GameManager : MonoBehaviour
 		//reset the obstacles
 		obstacleManager.ResetObstacles();
 
-		//reset counter
-		stageCounter = firstStageTime;
+		//reset Stages
+		ResetState();
 
 		//reset the distance bool
-		secondStage = false;
-		stageUI.SetStageText(secondStage);
+		stageUI.SetStageText();
 
 		//reset the points
 		points = 0;
 
 		//reset the stage
-		stageType = StageTypes.FreeRoam;
+		//stageType = StageTypes.FreeRoam;
 	}
 
+
+
+
+
+
+
 }
 
-public enum StageTypes
-{
-FreeRoam,
-KeepDistance
-}
