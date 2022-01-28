@@ -11,6 +11,21 @@ public class AudioManagerCS : MonoBehaviour
     private float musicVolumeFloat, soundEffectsVolumeFloat;
     public AudioSource[] musicAudio;
     public AudioSource[] sfxAudio;
+    private static AudioManagerCS audioManagerInstace;
+    public static AudioManagerCS GetInstance => audioManagerInstace;
+
+    private void Awake()
+    {
+        if(audioManagerInstace == null)
+        {
+            audioManagerInstace = this;
+        }
+        else if(audioManagerInstace != this)
+        {
+            Destroy(this.gameObject);
+        }
+        DontDestroyOnLoad(this.gameObject);
+    }
 
     private void Start()
     {
@@ -71,11 +86,5 @@ public class AudioManagerCS : MonoBehaviour
         {
             sfxAudio[i].volume = soundEffectsSlider.value;
         }
-    }
-
-    // Test sfx, delete after
-    public void TestSFX()
-    {
-        sfxAudio[0].Play();
     }
 }

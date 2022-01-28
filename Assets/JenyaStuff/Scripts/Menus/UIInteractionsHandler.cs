@@ -34,21 +34,25 @@ public class UIInteractionsHandler : MonoBehaviour
     public void Button_NewGame()
     {
         SceneManager.LoadScene(1);
+        AudioManagerCS.GetInstance.sfxAudio[0].Play();
     }
     public void Button_Options()
     {
         // Switch to OptionsMenu state and activate all its logic
         var context = new Context(new OptionsMenuState());
         context.Request();
+        AudioManagerCS.GetInstance.sfxAudio[0].Play();
     }
     public void Button_Credits()
     {
         // Switch to CreditsMenu state and activate all its logic
         var context = new Context(new CreditsMenuState());
         context.Request();
+        AudioManagerCS.GetInstance.sfxAudio[0].Play();
     }
     public void Button_Exit()
     {
+        AudioManagerCS.GetInstance.sfxAudio[0].Play();
         Application.Quit();
     }
     #endregion
@@ -106,17 +110,8 @@ public class UIInteractionsHandler : MonoBehaviour
             // Checking if we're on options or credits menu screen
             if (interfaceHandler.uIState == UIState.OptionsMenu || interfaceHandler.uIState == UIState.CreditsMenu)
             {
-                // Switch to MainMenu state and activate all its logic
-                var context = new Context(new MainMenuState());
-                context.Request();
-            }
-        }
-        // Exit to main menu button
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            // Checking if we're on gamecompletion menu screen
-            if (interfaceHandler.uIState == UIState.CompletionMenu)
-            {
+                AudioManagerCS.GetInstance.sfxAudio[4].Play();
+
                 // Switch to MainMenu state and activate all its logic
                 var context = new Context(new MainMenuState());
                 context.Request();

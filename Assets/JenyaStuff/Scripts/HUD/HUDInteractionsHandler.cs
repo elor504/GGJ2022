@@ -29,6 +29,8 @@ public class HUDInteractionsHandler : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            audioSettings.sfxAudio[4].Play();
+
             if (hudState == HUDstate.options)
             {
                 // Close options menu and open pause menu
@@ -61,6 +63,8 @@ public class HUDInteractionsHandler : MonoBehaviour
 
     public void Button_Continue()
     {
+        audioSettings.sfxAudio[0].Play();
+
         // Unfreeze time
         Time.timeScale = 1f;
 
@@ -78,6 +82,8 @@ public class HUDInteractionsHandler : MonoBehaviour
     }
     public void Button_Options()
     {
+        audioSettings.sfxAudio[0].Play();
+
         hudState = HUDstate.options;
 
         // Close pause menu and open options menu
@@ -86,6 +92,8 @@ public class HUDInteractionsHandler : MonoBehaviour
     }
     public void Button_ExitToMM()
     {
+        audioSettings.sfxAudio[0].Play();
+
         // Unfreeze time
         Time.timeScale = 1f;
 

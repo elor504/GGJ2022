@@ -75,9 +75,16 @@ public class AudioSettings : MonoBehaviour
         }
     }
 
-    // Test sfx, delete after
-    public void TestSFX()
+    public void StateChangeSound()
     {
-        sfxAudio[0].Play();
+        sfxAudio[1].Play();
+    }
+    public void PickUp()
+    {
+        sfxAudio[2].Play();
+    }
+    public void ObstecleHit()
+    {
+        sfxAudio[3].Play();
     }
 }
