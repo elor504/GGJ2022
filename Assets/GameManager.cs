@@ -62,10 +62,10 @@ public class GameManager : MonoBehaviour
 	}
 	public void EnterNewStage()
 	{
-		if (stageIndex + 1 < stages.Count - 1)
+		if (stageIndex + 1 < stages.Count)
 		{
 			stages[stageIndex + 1].StartStage();
-			//stages[stageIndex + 1].StartSpawning();
+			stages[stageIndex + 1].StartSpawning();
 		}
 
 		stageIndex++;
@@ -76,6 +76,7 @@ public class GameManager : MonoBehaviour
 			GetCurrentStage().StartStage();
 			GetCurrentStage().StartSpawning();
 		}
+		AudioSettings.ASInstance.StateChangeSound();
 		stageUI.SetStageText();
 	}
 	public void CurrentStageBehaviour()

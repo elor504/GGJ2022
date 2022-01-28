@@ -5085,8 +5085,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obstacleParent: {fileID: 343575534}
-  minX: -8
-  maxX: 8
+  minX: -3.5
+  maxX: 3.5
   minY: 6
   maxY: 8
 --- !u!114 &1472158596

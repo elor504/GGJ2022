@@ -69,6 +69,7 @@ public class Obstacle : MonoBehaviour
 			if(hitPlayer.playerType != targetType){
 				Debug.Log("You Lost");
 				GameManager.getInstance.RestartGame();
+				AudioSettings.ASInstance.ObstecleHit();
 			}
 		}
 	}

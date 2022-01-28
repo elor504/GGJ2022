@@ -25,7 +25,7 @@ public class StageSO : ScriptableObject
 
 	bool isActive;
 
-
+	IEnumerator StageSpawner;
 	public void StartStage()
 	{
 		isActive = true;
