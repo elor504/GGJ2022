@@ -4,5 +4,11 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/JenyaStuff/Scenes/Menus.unity
+    guid: e23f3c1bd7882894784b8398ac2d2f85
+  - enabled: 1
+    path: Assets/DemoScene.unity
+    guid: 161e8f57c5b8686489c2f2cf7ecddd75
   m_configObjects: {}
