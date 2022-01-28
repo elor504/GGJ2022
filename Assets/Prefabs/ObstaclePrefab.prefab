@@ -50,6 +50,9 @@ MonoBehaviour:
   humanSafeColor: {r: 0.2646134, g: 1, b: 0, a: 1}
   shadowSafeColor: {r: 1, g: 0, b: 0, a: 1}
   spriteRenderer: {fileID: 3354242632895325301}
+  distanceToStayAlive: 50
+  normalGravity: 0.5
+  freeRoamGravity: 1
 --- !u!61 &3354242632527524950
 BoxCollider2D:
   m_ObjectHideFlags: 0
