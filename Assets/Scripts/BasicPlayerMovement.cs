@@ -9,10 +9,11 @@ public class BasicPlayerMovement : MonoBehaviour
 	public float movementSpeed;
 	public bool isSecondPlayer;
 
-
+	Vector2 startPosition;
 	private void Awake()
 	{
 		rb = GetComponent<Rigidbody2D>();
+		startPosition = this.transform.position;
 	}
 
 	// Update is called once per frame
@@ -55,14 +56,10 @@ public class BasicPlayerMovement : MonoBehaviour
 			}
 		}
 	}
-
+	public void RestartPlayer(){
+		this.transform.position = startPosition;
+	}
 
 	
-	private void OnCollisionEnter2D(Collision2D collision)
-	{
-		if (collision.gameObject.tag == "Obstacle")
-		{
-			Debug.Log("You have lost");
-		}
-	}
+
 }
