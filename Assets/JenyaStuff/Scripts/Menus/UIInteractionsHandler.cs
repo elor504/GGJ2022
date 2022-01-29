@@ -42,6 +42,7 @@ public class UIInteractionsHandler : MonoBehaviour
     public void Button_NewGame()
     {
         AudioManagerCS.GetInstance.sfxAudio[0].Play();
+        AudioManagerCS.GetInstance.musicAudio[0].Stop();
         SceneManager.LoadScene(1);
     }
     public void Button_Options()

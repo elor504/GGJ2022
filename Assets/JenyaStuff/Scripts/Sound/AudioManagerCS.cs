@@ -1,5 +1,6 @@
 using UnityEngine.UI;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AudioManagerCS : MonoBehaviour
 {
@@ -55,6 +56,22 @@ public class AudioManagerCS : MonoBehaviour
         }
     }
 
+
+  
+    
+    private void OnLevelWasLoaded(int level)
+    {
+        
+        if (level == 0)
+        {
+            musicAudio[0].Play();
+
+            if (musicSlider == null)
+                musicSlider = UIPointerHolder.getInstance.musicSlider;
+            if (soundEffectsSlider == null)
+                soundEffectsSlider = UIPointerHolder.getInstance.soundSlider;
+        }
+    }
     public void SaveSoundSettings()
     {
         PlayerPrefs.SetFloat(MusicPref, musicSlider.value);
