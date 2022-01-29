@@ -28,3 +28,4 @@ MonoBehaviour:
   stageMaxTime: 30
   obstacleGravity: 5
   difficult: 0
+  timeToShow: 5

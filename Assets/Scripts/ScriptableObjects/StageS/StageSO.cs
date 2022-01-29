@@ -28,9 +28,12 @@ public class StageSO : ScriptableObject
 	public bool getIsActive => isActive;
 
 	Coroutine StageSpawner;
+	
+	UICounter uiCounter;
+	public int timeToShow;
 	private void Awake()
 	{
-		
+		uiCounter = GameObject.Find("UIManager").GetComponent<UICounter>();
 	}
 	public void StartStage()
 	{
@@ -142,12 +145,20 @@ public class StageSO : ScriptableObject
 	{
 		if (isActive)
 		{
+		if(uiCounter == null)
+				uiCounter = GameObject.Find("UIManager").GetComponent<UICounter>();
 			if (stageTime > 0)
 			{
 				stageTime -= Time.deltaTime;
+
+				if(stageTime < timeToShow)
+				{
+					uiCounter.ShowText(true);
+				}
 			}
 			else
 			{
+				uiCounter.ShowText(false);
 				ExitStage();
 			}
 		}
