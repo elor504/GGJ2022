@@ -31,10 +31,7 @@ public class StageSO : ScriptableObject
 	
 	UICounter uiCounter;
 	public int timeToShow;
-	private void Awake()
-	{
-		uiCounter = GameObject.Find("UIManager").GetComponent<UICounter>();
-	}
+
 	public void StartStage()
 	{
 	if(StageSpawner == null)
