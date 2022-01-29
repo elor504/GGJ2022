@@ -26,7 +26,7 @@ public class ShadowDeadlyObject : Obstacle
 			else if (collision.GetComponent<BasicPlayerMovement>().playerType == PlayerType.Shadow)
 			{
 				Debug.Log("You Lost");
-				GameManager.getInstance.UponLosing();
+				GameManager.getInstance.UponLosing("shadow");
 				AudioSettings.ASInstance.ObstecleHit();
 			}
 		}

@@ -21,13 +21,20 @@ public class ShadowLineRenderer : MonoBehaviour
 	private void Awake()
 	{
 		lineRendrer = GetComponent<LineRenderer>();
-		lineRendrer.SetPosition(0, origin.position);
-		lineRendrer.SetWidth(0.5f, 0.45f);
+		//lineRendrer.SetPosition(0, origin.position);
+		//lineRendrer.SetWidth(0.5f, 0.45f);
 
-		dist = Vector2.Distance(origin.position, destination.position);
+		//dist = Vector2.Distance(origin.position, destination.position);
 	}
 	private void Update()
 	{
+
+
+
+
+
+
+
 		//pointB.transform.position = new Vector3(origin.transform.position.x + destination.transform.position.x, point2YPosition, (origin.transform.position.z + destination.transform.position.z) / 2);
 
 		//var pointList = new List<Vector3>();
@@ -42,7 +49,7 @@ public class ShadowLineRenderer : MonoBehaviour
 		//}
 
 
-		lineRendrer.SetPosition(0, new Vector3(origin.position.x, origin.position.y, -10));
+		lineRendrer.SetPosition(0, new Vector3(origin.position.x, origin.position.y, 0));
 		lineRendrer.SetPosition(1, destination.position);
 	}
 }

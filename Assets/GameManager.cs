@@ -99,7 +99,7 @@ public class GameManager : MonoBehaviour
 	#endregion
 
 
-	public void UponLosing()
+	public void UponLosing(string _description)
 	{
 		// Freeze time
 		Time.timeScale = 0f;
