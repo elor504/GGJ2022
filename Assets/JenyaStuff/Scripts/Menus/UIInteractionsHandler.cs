@@ -35,22 +35,22 @@ public class UIInteractionsHandler : MonoBehaviour
     #region MainMenu Interactions
     public void Button_NewGame()
     {
-        SceneManager.LoadScene(1);
         AudioManagerCS.GetInstance.sfxAudio[0].Play();
+        SceneManager.LoadScene(1);
     }
     public void Button_Options()
     {
+        AudioManagerCS.GetInstance.sfxAudio[0].Play();
         // Switch to OptionsMenu state and activate all its logic
         var context = new Context(new OptionsMenuState());
         context.Request();
-        AudioManagerCS.GetInstance.sfxAudio[0].Play();
     }
     public void Button_Credits()
     {
+        AudioManagerCS.GetInstance.sfxAudio[0].Play();
         // Switch to CreditsMenu state and activate all its logic
         var context = new Context(new CreditsMenuState());
         context.Request();
-        AudioManagerCS.GetInstance.sfxAudio[0].Play();
     }
     public void Button_Exit()
     {

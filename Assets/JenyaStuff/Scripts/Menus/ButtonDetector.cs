@@ -15,7 +15,7 @@ public class ButtonDetector : MonoBehaviour, IPointerEnterHandler, IPointerExitH
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        //bImage.sprite = InterfaceHandler.GetInstance.OnHoverSprite;
+        bImage.sprite = InterfaceHandler.GetInstance.OnHoverSprite;
     }
 
     public void OnPointerExit(PointerEventData eventData)
