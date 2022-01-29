@@ -133,7 +133,7 @@ public class UIInteractionsHandler : MonoBehaviour
         // Back button
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            ResetHover();
+            //ResetHover();
             // Checking if we're on options or credits menu screen
             if (interfaceHandler.uIState == UIState.OptionsMenu || interfaceHandler.uIState == UIState.CreditsMenu || interfaceHandler.uIState == UIState.HowToPlayMenu)
             {

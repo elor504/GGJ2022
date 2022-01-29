@@ -39,7 +39,7 @@ public class HUDInteractionsHandler : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             audioSettings.sfxAudio[4].Play();
-            ResetHover();
+            //ResetHover();
 
             if(hudState == HUDstate.result)
             {
