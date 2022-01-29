@@ -68,6 +68,14 @@ public class HUDInteractionsHandler : MonoBehaviour
         }
     }
 
+    public void Button_Restart()
+    {
+        // Unfreeze time
+        Time.timeScale = 1f;
+        audioSettings.sfxAudio[0].Play();
+
+        SceneManager.LoadScene(1);
+    }
     public void Button_Continue()
     {
         audioSettings.sfxAudio[0].Play();

@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
 
 	public Transform playerOne, playerTwo;
 
+	public GameObject ResultScreen;
+
 
 
 	public bool secondStage;
@@ -99,8 +101,12 @@ public class GameManager : MonoBehaviour
 
 	public void UponLosing()
 	{
+		// Freeze time
+		Time.timeScale = 0f;
+		ResultScreen.SetActive(true);
+
 		GetCurrentStage().DeactivateStage();
-		ResetGame();
+		//ResetGame();
 	}
 	public void ResetGame()
 	{
