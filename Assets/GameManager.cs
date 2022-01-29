@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
 	private float points;
 	public float getPoints => points;
 
-
+	bool lastInput; //false = first player, true = second player
 
 
 	private void Awake()
@@ -96,17 +96,12 @@ public class GameManager : MonoBehaviour
 	}
 	#endregion
 
-	public void StartCourentine(IEnumerator courentine)
-	{
-		StartCoroutine(courentine);
-	}
 
 	public void UponLosing()
 	{
 		GetCurrentStage().DeactivateStage();
 		ResetGame();
 	}
-
 	public void ResetGame()
 	{
 		//reset the players position
@@ -127,15 +122,13 @@ public class GameManager : MonoBehaviour
 		//reset the points
 		points = 0;
 	}
-
 	public void AddPoints(int _amount)
 	{
 		points += _amount;
 	}
-
-
-
-
-
+	public void WhohadLastInput(bool _who)
+	{
+		lastInput = _who;
+	}
 }
 

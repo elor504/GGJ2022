@@ -28,10 +28,12 @@ public class BasicPlayerMovement : MonoBehaviour
 			if (Input.GetKey(KeyCode.LeftArrow))
 			{
 				rb.velocity = new Vector2(-movementSpeed, 0);
+				GameManager.getInstance.WhohadLastInput(true);
 			}
 			else if (Input.GetKey(KeyCode.RightArrow))
 			{
 				rb.velocity = new Vector2(movementSpeed, 0);
+				GameManager.getInstance.WhohadLastInput(true);
 			}
 			else
 			{
@@ -44,10 +46,12 @@ public class BasicPlayerMovement : MonoBehaviour
 			if (Input.GetKey(KeyCode.A))
 			{
 				rb.velocity = new Vector2(-movementSpeed, 0);
+				GameManager.getInstance.WhohadLastInput(false);
 			}
 			else if (Input.GetKey(KeyCode.D))
 			{
 				rb.velocity = new Vector2(movementSpeed, 0);
+				GameManager.getInstance.WhohadLastInput(false);
 			}
 			else
 			{

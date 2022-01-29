@@ -5314,7 +5314,8 @@ MonoBehaviour:
   playerTwo: {fileID: 1185937506}
   secondStage: 0
   stages:
-  - {fileID: 11400000, guid: a2a64a8896b409942a3b2d9578cb2cd5, type: 2}
+  - {fileID: 11400000, guid: 54e2c6d5551d0c147bc0bbf6e19e4267, type: 2}
+  - {fileID: 11400000, guid: 373e569385e37274e96c41f63fc42436, type: 2}
   stageIndex: 0
   stageUI: {fileID: 1129443924}
 --- !u!1 &1475046623
