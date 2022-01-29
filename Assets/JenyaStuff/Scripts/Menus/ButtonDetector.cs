@@ -7,6 +7,8 @@ public class ButtonDetector : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     private Image bImage;
     private Sprite defaultSprite;
 
+
+
     private void Awake()
     {
         bImage = GetComponent<Image>();
@@ -20,6 +22,6 @@ public class ButtonDetector : MonoBehaviour, IPointerEnterHandler, IPointerExitH
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        bImage.sprite = defaultSprite; 
+        bImage.sprite = defaultSprite;
     }
 }

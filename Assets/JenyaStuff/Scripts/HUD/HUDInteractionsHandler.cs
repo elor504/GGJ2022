@@ -1,6 +1,7 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class HUDInteractionsHandler : MonoBehaviour
 {
@@ -8,6 +9,11 @@ public class HUDInteractionsHandler : MonoBehaviour
     private HUDstate hudState;
     private bool isPauseAvailable;
     bool isFullScreenHUD;
+
+    public Image ContinueB;
+    public Image OptionsB;
+    public Image ExitMM;
+    public Sprite defaultSprite;
 
     #region PublicFields
     [Header("Menus")]
@@ -30,6 +36,7 @@ public class HUDInteractionsHandler : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             audioSettings.sfxAudio[4].Play();
+            ResetHover();
 
             if (hudState == HUDstate.options)
             {
@@ -134,6 +141,13 @@ public class HUDInteractionsHandler : MonoBehaviour
             isFullScreenHUD = false;
             Screen.fullScreen = isFullScreenHUD;
         }
+    }
+
+    private void ResetHover()
+    {
+        ContinueB.sprite = defaultSprite;
+        OptionsB.sprite = defaultSprite;
+        ExitMM.sprite = defaultSprite;
     }
 }
 

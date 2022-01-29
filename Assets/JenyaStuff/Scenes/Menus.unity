@@ -3534,6 +3534,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isFullScreenMenus: 1
+  NewGameB: {fileID: 499728027}
+  OptionsB: {fileID: 675830915}
+  CreditsB: {fileID: 1772067414}
+  ExitB: {fileID: 124400321}
+  defaultSprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
 --- !u!114 &1005682622
 MonoBehaviour:
   m_ObjectHideFlags: 0

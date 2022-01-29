@@ -8,6 +8,12 @@ public class UIInteractionsHandler : MonoBehaviour
     InterfaceHandler interfaceHandler;
     [HideInInspector] public bool isFullScreenMenus = true;
 
+    public Image NewGameB;
+    public Image OptionsB;
+    public Image CreditsB;
+    public Image ExitB;
+    public Sprite defaultSprite;
+
     private static UIInteractionsHandler UIIHInstance;
     public static UIInteractionsHandler GetInstance => UIIHInstance;
 
@@ -104,11 +110,20 @@ public class UIInteractionsHandler : MonoBehaviour
         context.Request();
     }
 
+    private void ResetHover()
+    {
+        NewGameB.sprite = defaultSprite;
+        OptionsB.sprite = defaultSprite;
+        CreditsB.sprite = defaultSprite;
+        ExitB.sprite = defaultSprite;
+    }
+
     private void Update()
     {
         // Back button
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            ResetHover();
             // Checking if we're on options or credits menu screen
             if (interfaceHandler.uIState == UIState.OptionsMenu || interfaceHandler.uIState == UIState.CreditsMenu)
             {
