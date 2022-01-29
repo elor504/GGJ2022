@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb1552e908b90814789f4fde93429064, type: 3}
   m_Name: SecondPattern
   m_EditorClassIdentifier: 
-  stageName: Second
+  stageName: Avoid and catch
   obstacleHolder:
   - obstacle: {fileID: 4486357606159762199, guid: 6099d909753e4324e8fc05791844cb9f, type: 3}
     movementType: 0

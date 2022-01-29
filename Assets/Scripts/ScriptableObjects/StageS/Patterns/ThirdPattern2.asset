@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1ff24e4a2422d794090a7888257c24bb, type: 3}
-  m_Name: ThirdPattern
+  m_Name: ThirdPattern2
   m_EditorClassIdentifier: 
   stageName: Stay close
   obstacleHolder:
@@ -18,12 +18,12 @@ MonoBehaviour:
     movementType: 0
     obstacleSpawnChange: 0
   minSpawnAmount: 1
-  maxSpawnAmount: 1
-  minSpawnTimer: 0.5
-  maxSpawnTimer: 1
-  stageMinTime: 10
-  stageMaxTime: 15
-  obstacleGravity: 5
+  maxSpawnAmount: 2
+  minSpawnTimer: 0.8
+  maxSpawnTimer: 1.2
+  stageMinTime: 30
+  stageMaxTime: 45
+  obstacleGravity: 5.3
   difficult: 0
   timeToShow: 7
-  extraRadiusAllowed: 3.5
+  extraRadiusAllowed: 3

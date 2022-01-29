@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fb1552e908b90814789f4fde93429064, type: 3}
-  m_Name: FirstPattern
+  m_Name: FirstPattern2
   m_EditorClassIdentifier: 
   stageName: Dode your death
   obstacleHolder:
@@ -24,11 +24,11 @@ MonoBehaviour:
     movementType: 0
     obstacleSpawnChange: 0
   minSpawnAmount: 1
-  maxSpawnAmount: 2
+  maxSpawnAmount: 3
   minSpawnTimer: 1
   maxSpawnTimer: 1.5
-  stageMinTime: 10
-  stageMaxTime: 10
-  obstacleGravity: 10
-  difficult: 0
+  stageMinTime: 30
+  stageMaxTime: 45
+  obstacleGravity: 10.7
+  difficult: 1
   timeToShow: 5

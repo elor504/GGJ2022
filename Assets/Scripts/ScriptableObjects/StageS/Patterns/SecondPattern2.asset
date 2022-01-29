@@ -10,17 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fb1552e908b90814789f4fde93429064, type: 3}
-  m_Name: FirstPattern
+  m_Name: SecondPattern2
   m_EditorClassIdentifier: 
-  stageName: Dode your death
+  stageName: Avoid and catch
   obstacleHolder:
-  - obstacle: {fileID: 3354242632527524949, guid: 6c2b5d09869cc7b40918665c61c6734a, type: 3}
+  - obstacle: {fileID: 4486357606159762199, guid: 6099d909753e4324e8fc05791844cb9f, type: 3}
     movementType: 0
     obstacleSpawnChange: 0
-  - obstacle: {fileID: 3354242632527524949, guid: da6806ce9b59bea46a98b2400b71cd50, type: 3}
-    movementType: 0
-    obstacleSpawnChange: 0
-  - obstacle: {fileID: 3354242632527524949, guid: bb1f0f5a7b1898540bfa5b9becabba7f, type: 3}
+  - obstacle: {fileID: 8594317067282844732, guid: 7214082d9af0089449ad896fa9a676c2, type: 3}
     movementType: 0
     obstacleSpawnChange: 0
   minSpawnAmount: 1
@@ -28,7 +25,7 @@ MonoBehaviour:
   minSpawnTimer: 1
   maxSpawnTimer: 1.5
   stageMinTime: 10
-  stageMaxTime: 10
-  obstacleGravity: 10
+  stageMaxTime: 15
+  obstacleGravity: 4
   difficult: 0
   timeToShow: 5
