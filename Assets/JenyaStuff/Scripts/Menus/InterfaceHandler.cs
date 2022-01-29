@@ -8,7 +8,11 @@ public class InterfaceHandler : MonoBehaviour
     private static InterfaceHandler IHInstance;
     public static InterfaceHandler GetInstance => IHInstance;
     [HideInInspector] public UIState uIState;
-
+    #region ButtonImages
+    [Header("Button sprites")]
+    public Sprite OnHoverSprite;
+    #endregion
+    [Header("Menus")]
     public GameObject MainMenu;
     public GameObject OptionsMenu;
     public GameObject CreditsMenu;
