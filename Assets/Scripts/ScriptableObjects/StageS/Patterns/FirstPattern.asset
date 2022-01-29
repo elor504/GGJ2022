@@ -17,12 +17,18 @@ MonoBehaviour:
   - obstacle: {fileID: 3354242632527524949, guid: 6c2b5d09869cc7b40918665c61c6734a, type: 3}
     movementType: 0
     obstacleSpawnChange: 0
+  - obstacle: {fileID: 3354242632527524949, guid: da6806ce9b59bea46a98b2400b71cd50, type: 3}
+    movementType: 0
+    obstacleSpawnChange: 0
+  - obstacle: {fileID: 3354242632527524949, guid: bb1f0f5a7b1898540bfa5b9becabba7f, type: 3}
+    movementType: 0
+    obstacleSpawnChange: 0
   minSpawnAmount: 1
-  maxSpawnAmount: 4
+  maxSpawnAmount: 2
   minSpawnTimer: 1
   maxSpawnTimer: 1.5
-  stageMinTime: 15
-  stageMaxTime: 15
-  obstacleGravity: 15
+  stageMinTime: 30
+  stageMaxTime: 75
+  obstacleGravity: 10
   difficult: 0
   timeToShow: 5
