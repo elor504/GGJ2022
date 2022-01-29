@@ -22,4 +22,5 @@ MonoBehaviour:
   maxSpawnTimer: 3
   stageMinTime: 10
   stageMaxTime: 15
+  obstacleGravity: 5
   difficult: 0

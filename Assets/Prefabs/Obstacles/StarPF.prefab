@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76f1dd6f69d9f86488e84bfb91764217, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementType: 0
   obstacleType: 4
   targetType: 0
   humanSafeColor: {r: 0.9686275, g: 0, b: 0.7490196, a: 1}
@@ -53,6 +54,9 @@ MonoBehaviour:
   spriteRenderer: {fileID: 7023263520106799447}
   distanceToStayAlive: 50
   fallSpeed: 5
+  _frequency: 5
+  _amplitude: 0.5
+  _cycleSpeed: 5
   collectiblePoint: 5
 --- !u!61 &7023263519396639092
 BoxCollider2D:

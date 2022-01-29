@@ -16,6 +16,7 @@ public class StageSO : ScriptableObject
 	[SerializeField] float minSpawnTimer;
 	[SerializeField] float maxSpawnTimer;
 	[SerializeField] int stageMinTime, stageMaxTime;
+	[SerializeField] float obstacleGravity;
 	float spawnCounter;
 	float stageTime;
 	public float getStageTime => stageTime;
@@ -24,6 +25,7 @@ public class StageSO : ScriptableObject
 	public Difficulties getDifficult => difficult;
 
 	bool isActive;
+	public bool getIsActive => isActive;
 
 	Coroutine StageSpawner;
 	private void Awake()
@@ -53,11 +55,17 @@ public class StageSO : ScriptableObject
 	{
 		float spawnTime = Random.Range(minSpawnTimer, maxSpawnTimer + 1);
 		spawnCounter = spawnTime;
-		List<Obstacle> obstaclesToSpawn = GetRandomObstacles();
+		List<ObstacleHolder> obstacleHolder = GetRandomObstacles();
+		List<Obstacle> obstaclesToSpawn = new List<Obstacle>();
+		for (int i = 0; i < obstacleHolder.Count; i++)
+		{
+			obstaclesToSpawn.Add(obstacleHolder[i].getObstacle);
+		}
+		
 		List<Vector2> spawnPositions = GetRandomSpawnPositions(obstaclesToSpawn);
 
 		yield return new WaitForSeconds(spawnCounter);
-		if (isActive)
+		if (this.isActive)
 		{
 			//InitObstacles();
 			bool requirefix = true;
@@ -119,12 +127,10 @@ public class StageSO : ScriptableObject
 			}
 			if (canSpawn)
 			{
-			
-				
 				for (int i = 0; i < obstaclesToSpawn.Count; i++)
 				{
 
-					ObstacleManager.getInstance.SpawnObstacle(obstaclesToSpawn[i], spawnPositions[i]);
+					ObstacleManager.getInstance.SpawnObstacle(obstaclesToSpawn[i], obstacleHolder[i].movementType, spawnPositions[i],obstacleGravity);
 				}
 			}
 
@@ -150,43 +156,30 @@ public class StageSO : ScriptableObject
 			StartStage();
 		}
 	}
-
+	public void PauseStage()
+	{
+		isActive = false;
+	}
 	public void ExitStage()
 	{
 		GameManager.getInstance.EnterNewStage();
 		isActive = false;
-		Debug.Log("Cancel Co");
 		GameManager.getInstance.StopCoroutine(StageSpawner);
 	}
+
 	public void DeactivateStage()
 	{
 		isActive = false;
 		GameManager.getInstance.StopCoroutine(StageSpawner);
-		Debug.Log("Cancel Co");
 	}
 	void RestartTimer()
 	{
 		float spawnTime = Random.Range(minSpawnTimer, maxSpawnTimer + 1);
 		spawnCounter = spawnTime;
 	}
-
-
 	public void InitObstacles()
 	{
-		List<Obstacle> obstaclesToSpawn = GetRandomObstacles();
-		List<Vector2> spawnPositions = new List<Vector2>();
-
-		spawnPositions = GetRandomSpawnPositions(obstaclesToSpawn);
-		Debug.Log("Amount to Spawn: " + obstaclesToSpawn.Count);
-
-		//GameManager.getInstance.StartCoroutine(Test(obstaclesToSpawn, spawnPositions));
-
-		//for (int i = 0; i < obstaclesToSpawn.Count; i++)
-		//{
-		//	Vector2 spawnPos = GetRandomSpawnPos();
-
-		//	ObstacleManager.getInstance.SpawnObstacle(obstaclesToSpawn[i], spawnPos);
-		//}
+		
 	}
 
 	IEnumerator Test(List<Obstacle> obstaclesToSpawn, List<Vector2> spawnPositions)
@@ -234,12 +227,11 @@ public class StageSO : ScriptableObject
 			Debug.Log("Spawn");
 			for (int i = 0; i < obstaclesToSpawn.Count; i++)
 			{
-				ObstacleManager.getInstance.SpawnObstacle(obstaclesToSpawn[i], spawnPositions[i]);
+				//ObstacleManager.getInstance.SpawnObstacle(obstaclesToSpawn[i], spawnPositions[i], obstacleGravity,);
 			}
 		}
 
 	}
-
 	Vector2 GetRandomSpawnPos()
 	{
 		float spawnXPos = Random.Range(ObstacleManager.getInstance.minX, ObstacleManager.getInstance.maxX + 1);
@@ -247,7 +239,6 @@ public class StageSO : ScriptableObject
 		Vector2 spawnPos = new Vector2(spawnXPos, spawnYPos);
 		return spawnPos;
 	}
-
 	List<Vector2> GetRandomSpawnPositions(List<Obstacle> obstaclesToSpawn)
 	{
 		List<Vector2> spawnPositions = new List<Vector2>();
@@ -260,25 +251,22 @@ public class StageSO : ScriptableObject
 
 		return spawnPositions;
 	}
-
-	List<Obstacle> GetRandomObstacles()
+	List<ObstacleHolder> GetRandomObstacles()
 	{
-		List<Obstacle> obstaclesToSpawn = new List<Obstacle>();
+		List<ObstacleHolder> obstaclesToSpawn = new List<ObstacleHolder>();
 		int amountToSpawn = Random.Range(minSpawnAmount, maxSpawnAmount + 1);
 		for (int i = 0; i < amountToSpawn; i++)
 		{
 			int spawnIndex = Random.Range(0, obstacleHolder.Count);
-			obstaclesToSpawn.Add(obstacleHolder[spawnIndex].getObstacle);
+			obstaclesToSpawn.Add(obstacleHolder[spawnIndex]);
 		}
 
 		return obstaclesToSpawn;
 	}
-
 	public virtual void StageBehaviour()
 	{
 		Debug.Log("Not Implemented Stage");
 	}
-
 }
 
 [Serializable]
@@ -286,6 +274,7 @@ public class ObstacleHolder
 {
 	[SerializeField] Obstacle obstacle;
 	public Obstacle getObstacle => obstacle;
+	public MovementTypes movementType;
 	[SerializeField] float obstacleSpawnChange;
 }
 public enum StageTypes

@@ -94,7 +94,6 @@ public class GameManager : MonoBehaviour
 	public string GetStageName(){
 		return GetCurrentStage().getStageName;
 	}
-
 	#endregion
 
 	public void StartCourentine(IEnumerator courentine)
@@ -102,7 +101,13 @@ public class GameManager : MonoBehaviour
 		StartCoroutine(courentine);
 	}
 
-	public void RestartGame()
+	public void UponLosing()
+	{
+		GetCurrentStage().DeactivateStage();
+		ResetGame();
+	}
+
+	public void ResetGame()
 	{
 		//reset the players position
 		playerOne.GetComponent<BasicPlayerMovement>().RestartPlayer();
@@ -121,9 +126,6 @@ public class GameManager : MonoBehaviour
 
 		//reset the points
 		points = 0;
-
-		//reset the stage
-		//stageType = StageTypes.FreeRoam;
 	}
 
 	public void AddPoints(int _amount)

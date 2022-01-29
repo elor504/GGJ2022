@@ -15,10 +15,13 @@ MonoBehaviour:
   stageName: NewStuff
   obstacleHolder:
   - obstacle: {fileID: 8594317067282844732, guid: 7214082d9af0089449ad896fa9a676c2, type: 3}
+    movementType: 0
     obstacleSpawnChange: 0
   - obstacle: {fileID: 6574479986205706892, guid: 8a3ff39ab2d89884ab627dd3ad3ad7fc, type: 3}
+    movementType: 0
     obstacleSpawnChange: 0
   - obstacle: {fileID: 4486357606159762199, guid: 6099d909753e4324e8fc05791844cb9f, type: 3}
+    movementType: 1
     obstacleSpawnChange: 0
   minSpawnAmount: 1
   maxSpawnAmount: 3
@@ -26,4 +29,5 @@ MonoBehaviour:
   maxSpawnTimer: 2
   stageMinTime: 50
   stageMaxTime: 120
+  obstacleGravity: 5
   difficult: 0

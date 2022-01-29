@@ -60,6 +60,4 @@ public class BasicPlayerMovement : MonoBehaviour
 		this.transform.position = startPosition;
 	}
 
-	
-
 }
