@@ -10,7 +10,7 @@ public class EdgeCheck : MonoBehaviour
 	{
 		if(collision.gameObject.tag == "BigMuffin")
 		{
-			GameManager.getInstance.UponLosing(" didn't collected muffin");
+			GameManager.getInstance.UponLosing("Madonna didn't collected the muffin");
 		}
 	}
 }

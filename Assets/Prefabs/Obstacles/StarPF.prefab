@@ -49,8 +49,8 @@ MonoBehaviour:
   movementType: 0
   obstacleType: 4
   targetType: 0
-  humanSafe: {fileID: 21300000, guid: 426e4eb06bf694541ba14560c7ebfb81, type: 3}
-  shadowSafe: {fileID: 21300000, guid: 426e4eb06bf694541ba14560c7ebfb81, type: 3}
+  humanSafe: {fileID: 21300000, guid: 0777bba074264e44c9cd335eeed1c483, type: 3}
+  shadowSafe: {fileID: 21300000, guid: 0777bba074264e44c9cd335eeed1c483, type: 3}
   spriteRenderer: {fileID: 7023263520106799447}
   distanceToStayAlive: 50
   fallSpeed: 5
@@ -176,7 +176,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 426e4eb06bf694541ba14560c7ebfb81, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0777bba074264e44c9cd335eeed1c483, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

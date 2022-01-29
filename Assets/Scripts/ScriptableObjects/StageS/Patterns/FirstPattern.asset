@@ -29,6 +29,6 @@ MonoBehaviour:
   maxSpawnTimer: 1.5
   stageMinTime: 10
   stageMaxTime: 10
-  obstacleGravity: 10
+  obstacleGravity: 6
   difficult: 0
   timeToShow: 5

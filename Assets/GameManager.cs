@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
 	public Transform playerOne, playerTwo;
 
 	public GameObject ResultScreen;
-
+	public WhoLostUI whoLost;
 
 
 	public bool secondStage;
@@ -101,6 +101,7 @@ public class GameManager : MonoBehaviour
 
 	public void UponLosing(string _description)
 	{
+		whoLost.UpdateLoseText(_description);
 		// Freeze time
 		Time.timeScale = 0f;
 		ResultScreen.SetActive(true);

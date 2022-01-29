@@ -20,7 +20,7 @@ public class Obstacle : MonoBehaviour
 
 	private Vector3 pos;
 	private Vector3 axis;
-	
+
 	private void Awake()
 	{
 		rb = GetComponent<Rigidbody2D>();
@@ -87,15 +87,15 @@ public class Obstacle : MonoBehaviour
 			{
 				Debug.Log("You Lost");
 
-				if(targetType == PlayerType.Human)
+				if (targetType == PlayerType.Human)
 				{
-					GameManager.getInstance.UponLosing("Human");
-				}else
+					GameManager.getInstance.UponLosing("Demonna got hit");
+				}
+				else
 				{
-					GameManager.getInstance.UponLosing("shadow");
+					GameManager.getInstance.UponLosing("Madonna got hit");
 				}
 
-				
 				AudioSettings.ASInstance.ObstecleHit();
 			}
 		}

@@ -26,7 +26,7 @@ public class CollectibleObstacle : Obstacle
 			else if (collision.GetComponent<BasicPlayerMovement>().playerType == PlayerType.Shadow)
 			{
 				Debug.Log("You Lost");
-				GameManager.getInstance.UponLosing("shadow");
+				GameManager.getInstance.UponLosing("Demonna got hit");
 				AudioSettings.ASInstance.ObstecleHit();
 			}
 		}
