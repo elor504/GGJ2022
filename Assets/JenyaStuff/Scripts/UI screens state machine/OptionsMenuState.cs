@@ -17,5 +17,6 @@ public class OptionsMenuState : State
         // Screens logic
         interfaceHandler.MainMenu.gameObject.SetActive(false);
         interfaceHandler.OptionsMenu.gameObject.SetActive(true);
+        interfaceHandler.HowToPlayMenu.gameObject.SetActive(false);
     }
 }

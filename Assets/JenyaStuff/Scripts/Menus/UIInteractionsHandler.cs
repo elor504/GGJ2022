@@ -10,6 +10,7 @@ public class UIInteractionsHandler : MonoBehaviour
 
     public Image NewGameB;
     public Image OptionsB;
+    public Image HowToPlayB;  
     public Image CreditsB;
     public Image ExitB;
     public Sprite defaultSprite;
@@ -57,6 +58,13 @@ public class UIInteractionsHandler : MonoBehaviour
         AudioManagerCS.GetInstance.sfxAudio[0].Play();
         // Switch to CreditsMenu state and activate all its logic
         var context = new Context(new CreditsMenuState());
+        context.Request();
+    }
+    public void Button_HowToPlay()
+    {
+        AudioManagerCS.GetInstance.sfxAudio[0].Play();
+        // Switch to HowToPlay state and activate all its logic
+        var context = new Context(new HowToPlayState());
         context.Request();
     }
     public void Button_Exit()
@@ -116,6 +124,7 @@ public class UIInteractionsHandler : MonoBehaviour
         NewGameB.sprite = defaultSprite;
         OptionsB.sprite = defaultSprite;
         CreditsB.sprite = defaultSprite;
+        HowToPlayB.sprite = defaultSprite;
         ExitB.sprite = defaultSprite;
     }
 
@@ -126,7 +135,7 @@ public class UIInteractionsHandler : MonoBehaviour
         {
             ResetHover();
             // Checking if we're on options or credits menu screen
-            if (interfaceHandler.uIState == UIState.OptionsMenu || interfaceHandler.uIState == UIState.CreditsMenu)
+            if (interfaceHandler.uIState == UIState.OptionsMenu || interfaceHandler.uIState == UIState.CreditsMenu || interfaceHandler.uIState == UIState.HowToPlayMenu)
             {
                 AudioManagerCS.GetInstance.sfxAudio[4].Play();
 

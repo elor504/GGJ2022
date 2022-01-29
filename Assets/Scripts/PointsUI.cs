@@ -8,6 +8,6 @@ public class PointsUI : MonoBehaviour
 	public TextMeshProUGUI pointText;
 	private void FixedUpdate()
 	{
-		pointText.text = "Points: " + Mathf.RoundToInt(GameManager.getInstance.getPoints).ToString();
+		pointText.text = Mathf.RoundToInt(GameManager.getInstance.getPoints).ToString();
 	}
 }

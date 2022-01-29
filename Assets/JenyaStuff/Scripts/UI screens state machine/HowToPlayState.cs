@@ -1,9 +1,9 @@
-public class MainMenuState : State
+public class HowToPlayState : State
 {
     InterfaceHandler interfaceHandler;
 
     // Getting a ref from interfaceManager to access menus containers
-    public MainMenuState()
+    public HowToPlayState()
     {
         interfaceHandler = InterfaceHandler.GetInstance;
     }
@@ -12,12 +12,12 @@ public class MainMenuState : State
     public override void StateLogic()
     {
         // Changing the enum state
-        interfaceHandler.uIState = UIState.MainMenu;
+        interfaceHandler.uIState = UIState.HowToPlayMenu;
 
         // Screens logic
-        interfaceHandler.MainMenu.gameObject.SetActive(true);
+        interfaceHandler.MainMenu.gameObject.SetActive(false);
         interfaceHandler.OptionsMenu.gameObject.SetActive(false);
         interfaceHandler.CreditsMenu.gameObject.SetActive(false);
-        interfaceHandler.HowToPlayMenu.gameObject.SetActive(false);
+        interfaceHandler.HowToPlayMenu.gameObject.SetActive(true);
     }
 }

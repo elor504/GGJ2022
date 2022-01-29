@@ -12,6 +12,7 @@ public class HUDInteractionsHandler : MonoBehaviour
 
     public Image ContinueB;
     public Image OptionsB;
+    public Image HowToPlayB;
     public Image ExitMM;
     public Sprite defaultSprite;
 
@@ -19,6 +20,8 @@ public class HUDInteractionsHandler : MonoBehaviour
     [Header("Menus")]
     public GameObject pauseMenu;
     public GameObject optionsMenu;
+    public GameObject htpMenu;
+    public GameObject resultMenu;
     #endregion
 
     void Start()
@@ -38,6 +41,13 @@ public class HUDInteractionsHandler : MonoBehaviour
             audioSettings.sfxAudio[4].Play();
             ResetHover();
 
+            if(hudState == HUDstate.result)
+            {
+                isPauseAvailable = false;
+
+                resultMenu.SetActive(true);
+                htpMenu.SetActive(false);
+            }
             if (hudState == HUDstate.options)
             {
                 // Close options menu and open pause menu
@@ -105,6 +115,15 @@ public class HUDInteractionsHandler : MonoBehaviour
         pauseMenu.SetActive(false);
         optionsMenu.SetActive(true);
     }
+    public void Button_HowToPlay()
+    {
+        audioSettings.sfxAudio[0].Play();
+
+        hudState = HUDstate.result;
+
+        resultMenu.SetActive(false);
+        htpMenu.SetActive(true);
+    }
     public void Button_ExitToMM()
     {
         audioSettings.sfxAudio[0].Play();
@@ -156,11 +175,13 @@ public class HUDInteractionsHandler : MonoBehaviour
         ContinueB.sprite = defaultSprite;
         OptionsB.sprite = defaultSprite;
         ExitMM.sprite = defaultSprite;
+        HowToPlayB.sprite = defaultSprite;  
     }
 }
 
 enum HUDstate
 {
     pause,
-    options
+    options,
+    result
 }

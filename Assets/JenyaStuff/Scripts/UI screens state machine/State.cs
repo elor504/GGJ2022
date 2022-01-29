@@ -18,5 +18,5 @@ public enum UIState
     MainMenu,
     OptionsMenu,
     CreditsMenu,
-    CompletionMenu
+    HowToPlayMenu
 }

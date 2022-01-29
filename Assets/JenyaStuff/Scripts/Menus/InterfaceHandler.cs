@@ -16,6 +16,7 @@ public class InterfaceHandler : MonoBehaviour
     public GameObject MainMenu;
     public GameObject OptionsMenu;
     public GameObject CreditsMenu;
+    public GameObject HowToPlayMenu;
     #endregion
 
 
