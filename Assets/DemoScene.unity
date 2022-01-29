@@ -5347,6 +5347,7 @@ MonoBehaviour:
   stages:
   - {fileID: 11400000, guid: 54e2c6d5551d0c147bc0bbf6e19e4267, type: 2}
   - {fileID: 11400000, guid: 373e569385e37274e96c41f63fc42436, type: 2}
+  - {fileID: 11400000, guid: 74db94118d48d8848b81d1cc2ba0da77, type: 2}
   stageIndex: 0
   stageUI: {fileID: 1129443924}
 --- !u!1 &1475046623
