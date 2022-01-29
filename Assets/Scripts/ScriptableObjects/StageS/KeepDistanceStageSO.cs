@@ -20,12 +20,12 @@ public class KeepDistanceStageSO : StageSO
 
 			if (playerOneMinX - extraRadiusAllowed > playerTwoMaxX)
 			{
-				GameManager.getInstance.UponLosing();
+				GameManager.getInstance.UponLosing("moved");
 				Debug.Log("Out of distance!!!");
 			}
 			else if (playerOneMaxX + extraRadiusAllowed < playerTwoMinX)
 			{
-				GameManager.getInstance.UponLosing();
+				GameManager.getInstance.UponLosing("moved");
 				Debug.Log("Out of distance!!!");
 			}
 		}

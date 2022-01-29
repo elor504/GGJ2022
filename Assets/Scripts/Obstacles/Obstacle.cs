@@ -6,7 +6,8 @@ public class Obstacle : MonoBehaviour
 	public MovementTypes movementType;
 	public ObstacleType obstacleType;
 	public PlayerType targetType;
-	public Color humanSafeColor, shadowSafeColor;
+	//public Color humanSafeColor, shadowSafeColor;
+	public Sprite humanSafe, shadowSafe;
 	public SpriteRenderer spriteRenderer;
 	public float distanceToStayAlive;
 	public float fallSpeed = 0.5f;
@@ -19,7 +20,7 @@ public class Obstacle : MonoBehaviour
 
 	private Vector3 pos;
 	private Vector3 axis;
-
+	
 	private void Awake()
 	{
 		rb = GetComponent<Rigidbody2D>();
@@ -69,10 +70,10 @@ public class Obstacle : MonoBehaviour
 		switch (targetType)
 		{
 			case PlayerType.Human:
-				spriteRenderer.color = humanSafeColor;
+				spriteRenderer.sprite = humanSafe;
 				break;
 			case PlayerType.Shadow:
-				spriteRenderer.color = shadowSafeColor;
+				spriteRenderer.sprite = shadowSafe;
 				break;
 		}
 	}
@@ -85,7 +86,16 @@ public class Obstacle : MonoBehaviour
 			if (hitPlayer.playerType != targetType)
 			{
 				Debug.Log("You Lost");
-				GameManager.getInstance.UponLosing();
+
+				if(targetType == PlayerType.Human)
+				{
+					GameManager.getInstance.UponLosing("Human");
+				}else
+				{
+					GameManager.getInstance.UponLosing("shadow");
+				}
+
+				
 				AudioSettings.ASInstance.ObstecleHit();
 			}
 		}
